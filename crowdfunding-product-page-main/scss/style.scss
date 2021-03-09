@@ -1,0 +1,515 @@
+﻿$moderate-cyan:hsl(176, 50%, 47%);
+$dark-cyan:hsl(176, 72%, 28%);
+@mixin setscale($width,$height) {
+    width: $width;
+    height: $height;
+}
+body {
+    box-sizing: border-box;
+    background-color: lightgrey;
+    font-size: 16px;
+    font-family: 'Commissioner', sans-serif;
+}
+*,*::after,*::before{
+    box-sizing:inherit;
+    margin:0;
+    padding:0;
+}
+header{
+    padding:20px;
+    img:last-of-type{
+        float:right;
+    }
+}
+.background-top {
+    position: absolute;
+    z-index:-1;
+    @include setscale(100%,300px);
+    background-image: url("../images/image-hero-mobile.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.introduction{
+    text-align:center;
+    padding:20px;
+    img{
+          position:relative;
+          top:-50px;
+       }
+}
+p{
+    margin-top:20px;
+    color:grey;
+    font-size:small;
+    line-height:1.7;
+}
+.big-container{
+    position:relative;
+    top:200px;
+    h1{
+          font-size:x-large;
+      }
+}
+.big-container > div {
+    background-color: white;
+    @include setscale(90%,auto);
+    margin: auto;
+    border-radius: 10px;
+    margin-top:20px;
+}
+.process{
+    margin-top:20px;
+    @include setscale(100%,80px);
+    button{
+              float:left;
+              @include setscale(75%,50px);
+              border-radius:30px;
+              background-color:$moderate-cyan;
+              outline:none;
+              border:none;
+              color:white;
+          }
+    img{
+        position:static;
+    }
+}
+.discover{
+    text-align:center;
+    padding:10px;
+    h1{
+          margin-top:20px;
+      }
+    hr{
+          @include setscale(25%,auto);
+          margin:20px auto;
+      }
+    p{
+        margin:0;
+    }
+}
+.about{
+    padding:40px 20px;
+}
+.stand-type{
+    padding:20px;
+    margin-top:20px;
+    border:1px solid lightgrey;
+    button{
+       @include setscale(75%,50px);
+       border-radius:30px;
+       outline:none;
+       border:none;
+       background-color:$moderate-cyan;
+       color:white;
+    }
+}
+h4{
+    color:$moderate-cyan;
+}
+.remainning > * {
+    display:inline-block;
+}
+b{
+    font-size:xx-large;
+    margin:20px 0;
+}
+.out-of-stock{
+    opacity:0.5;
+    cursor:not-allowed;
+    button{
+        cursor:not-allowed;
+        background-color:grey;
+        pointer-events:none;
+    }
+}
+.dropdown-container {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    @include setscale(100%,800px);
+}
+.dropdown {
+    background-color: white;
+    padding-top: 10px;
+    border-radius: 10px;
+    position: absolute;
+    @include setscale(90%,auto);
+    left: 20px;
+
+    li {
+        position: relative;
+        display: block;
+        margin: 20px;
+        font-weight: 700;
+    }
+
+    li::after {
+        @include setscale(55%,20px);
+        visibility: hidden;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-bottom: solid white;
+        transition: 0.5s;
+    }
+
+    li:first-of-type::after {
+        width: 40%;
+    }
+
+    li:last-of-type::after {
+        width: 70%;
+    }
+
+    hr {
+        opacity: 0.7;
+    }
+
+    li:hover {
+        cursor: pointer;
+    }
+
+    li:hover::after {
+        height: 25px;
+        visibility: visible;
+    }
+}
+.close-btn{
+    float:right;
+    position:relative;
+    top:-70px;
+}
+.background{
+    position:absolute;
+    background-color:black;
+    @include setscale(100%,100%);
+    opacity:0.8;
+}
+.back-the-project{
+    position:absolute;
+    @include setscale(100%,2500px);
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    display:none;
+}
+.small-container{
+    position:absolute;
+    @include setscale(90%,auto);
+    left:20px;
+    top:50px;
+    background-color:white;
+    border-radius:10px;
+    padding:20px;
+    img{
+        float:right;
+    }
+}
+.option{
+    padding:20px;
+    border:1px solid lightgrey;
+    margin-top:20px;
+    p{
+        line-height:2;
+    }
+    
+}
+.header-option > *{
+    display:inline-block;
+}
+.header-option {
+    input {
+        @include setscale(20px,20px);
+    }
+
+    input:checked .option {
+        border: solid black;
+    }
+}
+
+.remainning2{
+    @extend .remainning;
+}
+.price{
+    @extend .remainning;
+    border:1px solid lightgrey;
+    @include setscale(45%,50px);
+    border-radius:30px;
+}
+.pledge > *{
+    display:inline-block;
+}
+.pledge{
+    margin-top:20px;
+    p,b{
+        margin:0;
+        font-size:25px;
+    }
+    button{
+        @include setscale(50%,50px);
+        border-radius:30px;
+        border:none;
+        outline:none;
+        background-color:$moderate-cyan;
+        color:white;
+    }
+}
+.check-out{
+    text-align:center;
+    display:none;
+}
+.success-announce{
+    position:fixed;
+    @extend .dropdown-container;
+    text-align:center;
+    @include setscale(100%,2000px);
+}
+.announcement{
+    position:absolute;
+    top:0;
+    left:20px;
+    @include setscale(90%,auto);
+    background-color:white;
+    border-radius:20px;
+    h1{
+        font-size:x-large;
+    }
+    p{
+        font-size:medium;
+        @include setscale(90%,auto);
+        margin:20px auto;
+    }
+    button{
+        @include setscale(150px,50px);
+        border-radius:30px;
+        background-color:$moderate-cyan;
+        outline:none;
+        border:none;
+        margin-bottom:50px;
+        color:white;
+    }
+}
+.announcement > *{
+    margin-top:20px;
+}
+.bookmark{
+    input,p{
+        display:none;
+    }
+}
+.fill{
+    fill:$moderate-cyan;
+}
+button{
+    transition:1s;
+}
+button:hover{
+    background-color:$dark-cyan;
+}
+.progress-bar{
+    position:relative;
+    @include setscale(100%,20px);
+    background-color:gray;
+    border-radius:20px;
+}
+.progress-bar::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    @include setscale(75%,100%);
+    background-color: $dark-cyan;
+    border-radius: 20px;
+}
+@media screen and (min-width:1024px){
+    body{
+        background-color:aliceblue;
+    }
+    header {
+        padding:50px;
+        img:last-of-type{
+            display:none;
+        }
+    }
+    .background-top {
+        background-image: url("../images/image-hero-desktop.jpg");
+        background-size:cover;
+    }
+    .big-container{
+        @include setscale(60%,auto);
+        top:0;
+        left:20%;
+    }
+    .process{
+        button{
+            width:30%;
+        }
+    }
+    .bookmark {
+        position: relative;
+        float: right;
+        @include setscale(25%,100px);
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        p {
+            position: relative;
+            left: 20px;
+            color: black;
+            font-weight:500;
+            pointer-events:none;
+        }
+    }
+    .bookmark-background{
+        position:absolute;
+        @include setscale(100%,60%);
+        background-color:lightgray;
+        border-radius:30px;
+    }
+    svg{
+        position:absolute;
+        top:2px;
+        left:-2px;
+        transition:1s;
+        pointer-events:none;
+    }
+    #toggle-bookmark {
+        position: absolute;
+        @include setscale(150px,60px);
+        border-radius:30px;
+        -webkit-appearance:none;
+        background-color:lightgrey;
+        top: 0;
+        left: 0;
+        right: 0;
+        outline:none;
+    }
+    #toggle-bookmark::after{
+        position:absolute;
+        display:none;
+        top:25px;
+        left:50px;
+        @include setscale(100%,100%);
+        color:$dark-cyan;
+        content:'Bookmarked';
+        font-weight:700;
+    }
+    #toggle-bookmark:checked::after{
+        display:block;
+    }
+    #toggle-bookmark:checked {
+        background-color: azure;
+    }
+    #toggle-bookmark:checked + svg{
+        left:-10px;
+        circle{
+            fill:$moderate-cyan;
+        }
+    }
+    #toggle-bookmark:checked ~ p{
+            display:none;
+            
+    }
+    .discover {
+        display: flex;
+        justify-content: space-evenly;
+        text-align: left;
+        flex-flow:row wrap;
+        hr {
+            display: none;
+        }
+    }
+    .discover > div:first-of-type{
+        border-right:1px solid lightgrey;
+        padding-right:50px;
+        padding-bottom:20px;
+    }
+    .day-left {
+        border-left: 1px solid lightgrey;
+        padding-left: 50px;
+        padding-bottom: 20px;
+    }
+    .dropdown-container {
+        display: block;
+        height:200px;
+        text-align: right;
+        color: white;
+        margin-top: 20px;
+
+        .background {
+            display: none;
+        }
+
+        li {
+            width: 10%;
+            display: inline-block;
+        }
+
+        hr {
+            display: none;
+        }
+    }
+    .dropdown {
+        background-color: transparent;
+        float: right;
+    }
+    .success-announce{
+        margin:0;
+        display:none;
+        text-align:center;
+        height:2000px;
+        h1{
+            color:black;
+        }
+        .background{
+            display:block;
+        }
+        .announcement{
+            @include setscale(50%,auto);
+            top:100px;
+            left:25%;
+        }
+    }
+    .remainning{
+        width:40%;
+        margin:0;
+        display:inline-block;
+    }
+    .stand-type{
+        button{
+            width:30%;
+            float:right;
+            display:inline-block;
+        }
+    }
+    .small-container{
+        width:60%;
+        left:20%;
+    }
+    .bookmark{
+        input,p{
+            display:block;
+        }
+        p{
+            left:20px;
+        }
+    }
+    .header-option{
+        h3:hover{
+            color:$moderate-cyan;
+            cursor:pointer;
+        }
+    }
+    .progress-bar{
+        display:block;
+    }
+}
